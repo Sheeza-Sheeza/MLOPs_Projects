@@ -3,7 +3,12 @@ name: Deploy Application Docker Image to EC2 instance
 on:
   push:
     branches: [main]
-
+  workflow_dispatch:
+      inputs:
+        branch:
+          description: 'Branch to deploy'
+          required: true
+          default: 'main'
 jobs:
   Continuous-Integration:
     runs-on: ubuntu-latest
