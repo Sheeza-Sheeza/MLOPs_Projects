@@ -226,17 +226,6 @@ Example: `http://13.223.72.203:5000`
 | **EC2 instance** | Runs the self-hosted runner and production container |
 | **IAM user** | Credentials for S3, ECR, and GitHub Actions |
 
-## Troubleshooting
-
-| Issue | Fix |
-|-------|-----|
-| Container crash: `from_root` error | Ensure `.project-root` is copied in the Dockerfile |
-| Container crash: `mypy_boto3_s3` | Type-only import — should not be required at runtime |
-| `No such container: mlops-app` | Deployment job did not run; check self-hosted runner status |
-| Runner conflict: session already exists | Kill existing runner processes; run only one `./run.sh` or use `svc.sh` |
-| Job stuck: waiting for runner | Start the self-hosted runner on EC2; confirm it shows **Idle** on GitHub |
-| Browser timeout on public IP | Add inbound rule for TCP **5000** in the EC2 security group |
-| MongoDB connection timeout | Whitelist your IP (local) or EC2 public IP (production) in Atlas |
 
 ## Useful Commands (EC2)
 
